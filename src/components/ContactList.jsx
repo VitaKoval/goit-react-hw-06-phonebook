@@ -3,8 +3,8 @@ import { del } from '../redux/contactsSlice';
 import { List, Item, ButtonDelete, ContactName } from './ui/ContactList.styled';
 
 export const ContactList = () => {
-  const contacts = useSelector(state => state.contacts.contacts);
-  const filter = useSelector(state => state.contacts.filter);
+  const contacts = useSelector(state => state.root.contacts);
+  const filter = useSelector(state => state.root.filter);
   const dispatch = useDispatch();
 
   const filteredContacts = () => {
