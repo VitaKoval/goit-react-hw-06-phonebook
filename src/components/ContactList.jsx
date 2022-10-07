@@ -4,11 +4,11 @@ import { List, Item, ButtonDelete, ContactName } from './ui/ContactList.styled';
 
 export const ContactList = () => {
   const contacts = useSelector(state => state.contacts.contacts);
-  const filterKey = useSelector(state => state.contacts.filterKey);
+  const filter = useSelector(state => state.contacts.filter);
   const dispatch = useDispatch();
 
   const filteredContacts = () => {
-    const normalizedFilter = filterKey?.toLowerCase();
+    const normalizedFilter = filter?.toLowerCase();
 
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)

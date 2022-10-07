@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { add } from "../redux/contactsSlice";
+import { useDispatch } from 'react-redux';
+import { add } from '../redux/contactsSlice';
 import { nanoid } from 'nanoid';
 import {
   FormForAddContact,
@@ -10,39 +10,37 @@ import {
 } from './ui/ContactForm.styled';
 
 export function ContactForm() {
-    const [name, setName] = useState('');
-    const [number, setNumber] = useState('');
-    const id = nanoid();
-    
-    const dispatch = useDispatch();
-    const contact = useSelector(state => state.contacts);
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+  const id = nanoid();
 
-    // console.log(contact);
+  const newContact = {
+    name,
+    number,
+    id,
+  };
 
-  const newContact = { name, number, id };
-//   console.log(newContact);
-    
-     const handleChangeName = evt => {
+  const dispatch = useDispatch();
+
+  const handleChangeName = evt => {
     setName(evt.currentTarget.value);
   };
+    
   const handleChangeNumber = evt => {
     setNumber(evt.currentTarget.value);
   };
-    
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
 
-        dispatch(add(newContact));
+  const handleSubmit = evt => {
+    evt.preventDefault();
+    dispatch(add(newContact));
 
-        // очистить инпут после submit
     setName('');
     setNumber('');
+  };
 
-    }
-
-     return (
-    <FormForAddContact onSubmit={handleSubmit} >
-      <Label htmlFor='ContactName'>Name</Label>
+  return (
+    <FormForAddContact onSubmit={handleSubmit}>
+      <Label htmlFor="ContactName">Name</Label>
       <Input
         type="text"
         name="name"
