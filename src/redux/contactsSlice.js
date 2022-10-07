@@ -34,10 +34,3 @@ export const contactsSlice = createSlice({
 // console.log(contactsSlice);
 
 export const { add, del, filterAdd } = contactsSlice.actions;
-
-
-
-
-
-
-

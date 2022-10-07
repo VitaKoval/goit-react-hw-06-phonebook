@@ -4,10 +4,9 @@
 import { ContactForm } from './ContactForm';
 import { Container } from './ui/App.styled';
 import { Filter } from './Filter';
-import {ContactList} from './ContactList';
+import { ContactList } from './ContactList';
 
 function App() {
-
   return (
     <Container>
       <h1>Phonebook</h1>
@@ -15,8 +14,7 @@ function App() {
 
       <h2>Contacts</h2>
       <Filter />
-      <ContactList
-      />
+      <ContactList />
     </Container>
   );
 }
